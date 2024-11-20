@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #e3eaf2, #f7f7f7);
+            overflow: hidden;
+            color: #333;
+        }
+
+        /* Forgot Password Container Styling */
+        .forgot-password-container {
+            position: relative;
+            width: 360px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+            z-index: 2;
+        }
+
+        .forgot-password-container:hover {
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Heading */
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #4a4a4a;
+        }
+
+        p {
+            margin: 10px 0 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Input Styles */
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #f7f7f7;
+            color: #333;
+            font-size: 1rem;
+            outline: none;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        input[type="email"]:focus {
+            background-color: #e3eaf2;
+            border-color: #6b9cd8;
+        }
+
+        /* Submit Button */
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #6b9cd8;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #547fb1;
+        }
+
+        /* Back to Login Link */
+        .options {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #6b9cd8;
+        }
+
+        .options a {
+            color: #6b9cd8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .options a:hover {
+            color: #547fb1;
+        }
+
+        /* Background Image */
+        #dynamic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Image -->
+    <img id="dynamic-bg" src="bg.gif" alt="Background Image">
+
+    <!-- Forgot Password Container -->
+    <div class="forgot-password-container">
+        <h2>Forgot Password</h2>
+        <p>Enter your email address to receive a password reset link.</p>
+        <form action="#">
+            <input type="email" placeholder="Email Address" required>
+            <input type="submit" value="Send Reset Link">
+        </form>
+
+        <!-- Back to Login Link -->
+        <div class="options">
+            <a href="login2.html">Back to Login</a>
+        </div>
+    </div>
+</body>
+</html>

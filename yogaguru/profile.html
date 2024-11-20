@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Guru | Home</title>
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Add your existing styles here */
+
+        .profile-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #4CAF50; /* Background color */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-dropdown {
+            display: none;
+            position: absolute;
+            top: 70px; /* Adjust based on your layout */
+            right: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .profile-dropdown.active {
+            display: block;
+        }
+
+        .profile-dropdown p {
+            margin: 10px;
+        }
+
+        .profile-dropdown ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .profile-dropdown ul li {
+            padding: 5px 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-dropdown ul li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-dropdown ul li:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Yoga Guru</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="instructor.html">Instructors</a></li>
+                    <li><a href="Practice.html">Practitioners</a></li>
+                    <li><a href="about us.html">About</a></li>
+                    <li><a href="http://localhost/yogaguru/login2.php" id="loginLink">Login</a></li>
+                    <li><a href="registration.php" id="registerLink">Register</a></li>
+                </ul>
+            </nav>
+            <div class="profile-icon" onclick="toggleProfileDropdown()">
+                <span id="profileInitial">U</span> <!-- User initial -->
+            </div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <p id="profileName">User Name</p> <!-- User name -->
+                <ul id="bookedCoursesList">
+                    <!-- List of booked courses will be populated here -->
+                </ul>
+                <button onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Rest of your HTML content -->
+
+    <script>
+        function toggleProfileDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        function logout() {
+            // Implement logout logic here (e.g., clearing session)
+            alert("Logging out...");
+        }
+
+        // Example function to populate profile data
+        function populateProfile(name, initial, courses) {
+            document.getElementById('profileName').innerText = name;
+            document.getElementById('profileInitial').innerText = initial;
+
+            const list = document.getElementById('bookedCoursesList');
+            list.innerHTML = ''; // Clear existing items
+            courses.forEach(course => {
+                const li = document.createElement('li');
+                li.innerText = course;
+                list.appendChild(li);
+            });
+        }
+
+        // Example usage (this data would come from your backend)
+        // populateProfile('John Doe', 'J', ['Yoga for Beginners', 'Advanced Asanas']);
+    </script>
+</body>
+</html>

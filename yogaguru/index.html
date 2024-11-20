@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Guru | Home</title>
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .highlight {
+            background-color: #f0e68c; /* Light yellow background */
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s; /* Transition effect */
+        }
+
+        .blink {
+            animation: blinkAnimation 1s infinite; /* Blink animation */
+        }
+
+        @keyframes blinkAnimation {
+            0%, 100% {
+                opacity: 1; /* Fully visible */
+            }
+            50% {
+                opacity: 0; /* Fade out */
+            }
+        }
+
+        nav ul {
+            position: relative; /* Needed for absolute positioning of elements */
+        }
+
+        .hero-text {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .profile-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #4CAF50; /* Background color */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-dropdown {
+            display: none;
+            position: absolute;
+            top: 70px; /* Adjust based on your layout */
+            right: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .profile-dropdown.active {
+            display: block;
+        }
+
+        .profile-dropdown p {
+            margin: 10px;
+        }
+
+        .profile-dropdown ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .profile-dropdown ul li {
+            padding: 5px 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-dropdown ul li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-dropdown ul li:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Yoga Guru</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="instructor.html">Instructors</a></li>
+                    <li><a href="Practice.html">Practitioners</a></li>
+                    <li><a href="about us.html">About</a></li>
+                    <li><a href="http://localhost/yogaguru/login2.php" id="loginLink">Login</a></li>
+                    <li><a href="registration.php" id="registerLink">Register</a></li>
+                </ul>
+            </nav>
+            <div class="profile-icon" onclick="toggleProfileDropdown()">
+                <span id="profileInitial">U</span> <!-- User initial -->
+            </div>
+            <div class="profile-dropdown" id="profileDropdown" style="display: none;">
+                <p id="profileName">User Name</p> <!-- User name -->
+                <ul id="bookedCoursesList">
+                    <!-- List of booked courses will be populated here -->
+                </ul>
+                <button onclick="logout()">Logout</button>
+            </div>
+            
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-text">
+            <h2>Find Inner Peace with Our Expert Yoga Courses</h2>
+            <p>Explore a variety of yoga courses suitable for all levels. Begin your journey today with secure online bookings.</p>
+            <button class="btn" onclick="highlightLinks()">Book Courses</button>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2>About Yoga Guru</h2>
+        <p>Yoga Guru connects enthusiasts with qualified instructors for a seamless booking experience. Discover yoga at your level and book securely through our platform.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Yoga Guru. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleProfileDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        function logout() {
+            // Implement logout logic here (e.g., clearing session)
+            alert("Logging out...");
+            // Optionally, redirect to login page or clear user session
+        }
+
+        // Function to set user profile data
+        function setUserProfile(name) {
+            const initial = name.charAt(0).toUpperCase(); // Get initial from name
+            document.getElementById('profileName').innerText = name;
+            document.getElementById('profileInitial').innerText = initial;
+        }
+
+        // Example usage (you would call this function after registration or login)
+        // setUserProfile('John Doe');
+
+        function highlightLinks() {
+            const loginLink = document.getElementById('loginLink');
+            const registerLink = document.getElementById('registerLink');
+
+            // Add highlight and blink classes
+            loginLink.classList.add('highlight', 'blink');
+            registerLink.classList.add('highlight', 'blink');
+
+            // Remove the blink effect after a few seconds
+            setTimeout(() => {
+                loginLink.classList.remove('blink');
+                registerLink.classList.remove('blink');
+            }, 5000); // Stop blinking after 5 seconds
+        }
+    </script>
+</body>
+</html>
